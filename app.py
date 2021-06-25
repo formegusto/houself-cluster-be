@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_restx import Api, Resource
+from common.init import init
 
 app = Flask(__name__)
 api = Api(app)
@@ -12,4 +13,5 @@ class HelloWorld(Resource):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=8080)
+    init()
+    app.run(debug=True, host="0.0.0.0", port=8080, use_reloader=False)
